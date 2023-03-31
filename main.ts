@@ -1,10 +1,14 @@
+let temperature = 0
 datalogger.setColumnTitles(
 control.deviceName(),
 "1"
 )
-basic.showNumber(0)
+radio.setGroup(1)
 datalogger.log(datalogger.createCV(control.deviceName(), control.deviceSerialNumber()))
 basic.forever(function () {
     basic.pause(10000)
-    datalogger.log(datalogger.createCV("1", input.temperature()))
+    temperature = input.temperature()
+    basic.showNumber(temperature)
+    datalogger.log(datalogger.createCV("1", temperature))
+    radio.sendNumber(temperature)
 })
