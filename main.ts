@@ -6,7 +6,7 @@ control.deviceName(),
 radio.setGroup(1)
 datalogger.log(datalogger.createCV(control.deviceName(), control.deviceSerialNumber()))
 basic.forever(function () {
-    basic.pause(20000)
+    basic.pause(5000)
     temperature = input.temperature()
     basic.showNumber(temperature)
     datalogger.log(datalogger.createCV("1", temperature))
